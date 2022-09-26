@@ -1,1 +1,24 @@
-<p>rooms works!</p>
+<!--interpolation-->
+<app-header></app-header>
+<app-header></app-header>
+<app-header></app-header>
+<!-- {{rooms$ | async |json}} -->
+<div [hidden]="hideRooms">
+    Number of Rooms:
+    <div [innerText]="numberofRooms"></div>
+</div>
+<!--null collision-->
+<!--{{rooms?.availabeRooms?? "No Rooms"}}-->
+<!--ng if sample-->
+<div *ngIf="optedRoom">
+    <!-- {{optedRoom | json}} -->
+</div>
+<div>
+    <button (click)="addRoom()">Add Room </button>
+</div>
+<div *ngIf="rooms$ | async as rooms">
+    <app-rooms-list [rooms]="rooms"  [title]="title"
+   (selectedRoom) = "selected($event)" >Select</app-rooms-list> 
+</div>
+<button (click)="toggle()">Toggle</button>
+<button (click)="editRoom()">Edit</button>

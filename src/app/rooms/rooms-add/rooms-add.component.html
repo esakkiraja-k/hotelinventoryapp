@@ -1,0 +1,37 @@
+<p>rooms-add works!</p>
+ {{room | json}}
+<form  (ngSubmit)="AddRoom()">
+    <div class="form-group">
+        <input class="form-control"
+         type="text" name="roomType"
+          placeholder="Room Type"
+          [(ngModel)] = "room.roomType">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" name="amenities" 
+        placeholder="Amenities"  [(ngModel)] = "room.amenities">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="number" name="price" 
+        placeholder="Price" [(ngModel)] = "room.price" >
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" name="photos"
+         placeholder="photos" [(ngModel)]="room.photos" >
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="datetime" name="CheckInTime" 
+        placeholder="Check In Time" [(ngModel)]="room.checkinTime"  >
+    </div>
+    <div class="form-group">
+        <input class="form-control"
+         type="datetime" name="CheckoutTime" 
+         placeholder=" Check out time"
+         [(ngModel)]="room.checkoutTime" >
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="number" 
+        name="rating" placeholder="ratings" [(ngModel)]="room.rating" >
+    </div>
+    <div> <button type="submit" class="btn btn-primary">Submit</button></div>
+</form>

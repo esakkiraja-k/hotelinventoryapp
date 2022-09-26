@@ -1,0 +1,30 @@
+{{title}}
+<table class="table">
+    <tr>
+        <th>Room Number</th>
+        <th>roomType</th>
+        <th>amenities</th>
+        <th>price</th>
+        <th>photos</th>
+        <th>checkin Time</th>
+        <th>checkout Time</th>
+        <th>Select Room</th>
+    </tr>
+   <!-- {{roomList | json}}-->
+    <tr [ngClass]="e ?'even':'odd'" *ngFor="let room of rooms; let e = even; let i = index">
+        <td>{{ i | percent}}</td>
+        <td>{{room.roomNumber}}</td>
+        <td>{{room.roomType}}</td>
+        <td>{{room.amenities}}</td>
+        <td>{{room.price | currency: 'INR'}}</td>
+        <!-- <td> <img src="{{room.photos}}" alt="photos"></td> -->
+        <td>{{room.checkinTime | date:'short'}}</td>
+        <td>{{room.checkoutTime | date:'dd/MM/yyyy'}}</td>
+        <td>{{room.rating | number:'1.0-0'}}</td>
+        <td>
+            <!-- <button class="btn btn-primary" 
+            (click)="selectRoom(room)">  </button> -->
+            <button  [routerLink] = "['/rooms',room.roomNumber]">Book</button>
+        </td>
+    </tr>
+</table>
